@@ -57,6 +57,24 @@ You can point the `root_ca_path` to the system trust store if required, e.g.:
 
 ## Development
 
+### Prerequisites
+
+For development and testing, you may need to set up a local virtualization environment. We provide a script to automate the installation and configuration of QEMU-KVM on Ubuntu systems:
+
+```bash
+# Run the setup script to install and configure QEMU-KVM
+./scripts/setup-libvirt.sh
+```
+
+This script will:
+- Install QEMU-KVM and libvirt packages
+- Create and configure the default storage pool
+- Download and prepare an Ubuntu Cloud image
+- Set up proper permissions and user groups
+- Provide the image path for use in Terraform variables
+
+**Note**: After running the script, you'll need to log out and log back in for group membership changes to take effect.
+
 ### Build
 
 There is a [makefile](./GNUmakefile) to build the provider and place it in repos root dir.
